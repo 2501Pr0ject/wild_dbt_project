@@ -1,0 +1,4 @@
+status_id,status_name,min_orders,max_orders,description
+1,bronze,0,2,Nouveaux clients avec moins de 3 commandes
+2,silver,3,9,Clients fidèles avec 3 à 9 commandes
+3,gold,10,999,Clients VIP avec 10 commandes ou plus

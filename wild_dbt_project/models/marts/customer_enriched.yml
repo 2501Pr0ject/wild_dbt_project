@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: customer_enriched
+    description: "Customer data enriched with status information based on order count. Combines customer details with their loyalty status using the customer_status seed data."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer"
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: "Full name of the customer"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total number of orders placed by the customer"
+        tests:
+          - not_null
+      - name: customer_status
+        description: "Customer loyalty status based on order count (bronze, silver, gold)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['bronze', 'silver', 'gold']
+      - name: status_description
+        description: "Detailed description of what the customer status means"
+        tests:
+          - not_null
