@@ -2,26 +2,26 @@ version: 2
 
 models:
   - name: stg_orders
-    description: "Staging table for orders data"
+    description: "Order data with basic cleaning and transformation applied. Contains one row per order with standardized column names and data types for downstream analysis."
     columns:
       - name: order_id
-        description: "Unique identifier for orders"
+        description: "The unique key for each order. This is the primary identifier that allows tracking of individual orders throughout the system."
         tests:
           - not_null
           - unique
       - name: customer_id
-        description: "Foreign key to customer"
+        description: "Foreign key referencing the customer who placed the order. Links to the customer_id in stg_customers table to maintain referential integrity."
         tests:
           - not_null
           - relationships:
               to: ref('stg_customers')
               field: customer_id
       - name: order_date
-        description: "Date when the order was placed"
+        description: "The date when the order was placed by the customer. Used for time-based analysis and reporting. Format: YYYY-MM-DD."
         tests:
           - not_null
       - name: order_status
-        description: "Status of the order"
+        description: "Current status of the order in the fulfillment process. Possible values are 'completed' (order fulfilled and delivered), 'pending' (order received but not yet processed), or 'cancelled' (order cancelled by customer or system)."
         tests:
           - not_null
           - accepted_values:

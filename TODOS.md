@@ -30,13 +30,24 @@
 - [x] Création des données de test (seeds)
 - [x] Tests réussis avec dbt run
 
+### Tests de qualité des données
+- [x] Ajout de tests not_null et unique sur stg_customers
+- [x] Ajout de tests not_null et unique sur stg_orders
+- [x] Ajout de test relationships entre customer_id des deux tables
+- [x] Ajout de test accepted_values pour order_status
+- [x] Création de test personnalisé order_dates_in_the_past
+- [x] Validation complète avec dbt test (11 tests réussis)
+
 ### Gestion de version
 - [x] Création branche challenge-stg-orders
-- [x] Commit des modifications
-- [x] Push vers GitHub
-- [x] Création et merge de la pull request
+- [x] Commit des modifications staging
+- [x] Push vers GitHub et merge PR staging
+- [x] Création branche challenge-dbt-tests
+- [x] Commit des modifications tests
+- [x] Push vers GitHub des tests
 - [x] Création CHANGELOG.md
 - [x] Création TODOS.md
+- [x] Mise à jour documentation projet
 
 ## Statut actuel du projet
 
@@ -57,6 +68,7 @@ wild_dbt_project/
 │   └── raw_orders.csv
 ├── snapshots/
 ├── tests/
+│   └── order_dates_in_the_past.sql
 ├── dbt_project.yml
 └── profiles.yml
 ```
@@ -71,18 +83,27 @@ wild_dbt_project/
 - Tables : raw_customers, raw_orders
 - Vues : stg_customers, stg_orders
 
-### Tests
-- dbt run : ✅ Succès
-- dbt seed : ✅ Succès
+### Tests et validation
+- dbt run : ✅ Succès (2 modèles)
+- dbt seed : ✅ Succès (2 tables)
+- dbt test : ✅ Succès (11 tests de qualité)
 - Toutes les dépendances résolues
+- Intégrité des données validée
+
+### Tests implémentés
+- Tests not_null : customer_id, customer_name, order_id, order_date, order_status
+- Tests unique : customer_id, order_id
+- Test relationships : customer_id entre stg_orders et stg_customers
+- Test accepted_values : order_status (completed, pending, cancelled)
+- Test personnalisé : order_dates_in_the_past
 
 ## Prêt pour la suite
 
 Le projet est maintenant configuré avec :
 - Structure de base complète
-- Modèles staging fonctionnels
-- Documentation à jour
-- Tests passants
+- Modèles staging fonctionnels avec tests de qualité
+- Documentation à jour et complète
+- Validation des données robuste
 - Versioning Git organisé
 
-Base solide pour implémenter de nouveaux modèles et fonctionnalités.
+Base solide et fiable pour implémenter de nouveaux modèles et fonctionnalités.
