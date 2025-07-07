@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Staging table for orders data"
+    columns:
+      - name: order_id
+        description: "Unique identifier for orders"
+      - name: customer_id
+        description: "Foreign key to customer"
+      - name: order_date
+        description: "Date when the order was placed"
+      - name: order_status
+        description: "Status of the order"

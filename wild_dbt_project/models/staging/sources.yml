@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Raw data from DuckDB"
+    schema: main
+    tables:
+      - name: raw_customers
+        description: "Raw customer data"
+      - name: raw_orders
+        description: "Raw orders data"
