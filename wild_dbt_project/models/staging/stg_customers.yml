@@ -6,5 +6,10 @@ models:
     columns:
       - name: customer_id
         description: "Unique identifier for customers"
+        tests:
+          - not_null
+          - unique
       - name: customer_name
         description: "Customer name"
+        tests:
+          - not_null
