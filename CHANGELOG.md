@@ -6,6 +6,25 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ## [Non publié]
 
+## [1.2.0] - 2025-01-07
+
+### Ajouté
+✅ Tests de qualité des données complets
+✅ Tests intégrés not_null et unique sur stg_customers et stg_orders
+✅ Test de relation (relationships) entre customer_id des deux tables
+✅ Test accepted_values pour order_status
+✅ Test personnalisé pour vérifier les dates de commande
+
+### Validation
+✅ 11 tests dbt exécutés avec succès
+✅ Couverture complète de la validation des données
+✅ Intégrité référentielle vérifiée
+
+### Technique
+✅ Création de la branche challenge-dbt-tests
+✅ Ajout du dossier tests/ avec fichier personnalisé
+✅ Mise à jour des fichiers YAML de documentation
+
 ## [1.1.0] - 2025-01-07
 
 ### Ajouté
